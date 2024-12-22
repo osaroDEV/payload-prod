@@ -9,7 +9,21 @@ import { Customer } from '@/payload-types'
 export async function getUser(): Promise<Customer | null> {
   const headers = await getHeaders()
   const payload: Payload = await getPayload({ config: await configPromise })
-  const { user } = await payload.auth({ headers })
+  
+  const authHeader = headers.get('authorization')
+  if (!authHeader) {
+    return null
+  }
 
-  return user || null
+  const token = authHeader.split(' ')[1]
+  const user = await payload.find({
+    collection: 'customers',
+    where: {
+      token: {
+        equals: token,
+      },
+    },
+  })
+
+  return user.docs[0] || null
 }
