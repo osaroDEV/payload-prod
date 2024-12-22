@@ -18,7 +18,7 @@ const Page = () => {
 
   const handleCheck = async () => {
     try {
-      const req = await fetch('http://localhost:3000/api/customers/me', {
+      const req = await fetch('http://payload-prod.vercel.app/api/customers/me', {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -44,7 +44,7 @@ const Page = () => {
   )
 }
 
-// lms-three-silk.vercel.app
+// payload-prod.vercel.app
 // localhost:3000
 
 export default Page

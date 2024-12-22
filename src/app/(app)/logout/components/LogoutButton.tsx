@@ -13,7 +13,7 @@ const LogoutButton = (): ReactElement => {
 
   const handleLogout = async (): Promise<void> => {
     try {
-      const res = await fetch('http://localhost:3000/api/customers/logout', {
+      const res = await fetch('http://payload-prod.vercel.app/api/customers/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const LogoutButton = (): ReactElement => {
   return <button onClick={handleLogout}>Logout</button>
 }
 
-// lms-three-silk.vercel.app
+// payload-prod.vercel.app
 // localhost:3000
 
 export default LogoutButton
