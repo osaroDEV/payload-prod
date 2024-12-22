@@ -18,7 +18,7 @@ const Page = () => {
 
   const handleCheck = async () => {
     try {
-      const req = await fetch('http://payload-prod.vercel.app/api/customers/me', {
+      const req = await fetch('https://payload-prod.vercel.app/api/customers/me', {
         method: 'GET',
         credentials: 'include',
         headers: {
